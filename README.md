@@ -11,6 +11,13 @@ DSH 的**跨会话提醒**插件：某个会话「完成 / 待回答 / 待审批
 
 ## 中文
 
+![通知中心里的「待回答」提醒](assets/toast-notification-center.png)
+
+![横幅形态（可点击回到会话）与任务栏](assets/toast-banner.jpg)
+
+> ☝️ 真实截图（2026-09-29）。注意横幅里的应用名是 **`DeepSeek Harness` 并带 DSH 图标** —— 这正是 **AUMID 注册**的效果；没有它，横幅顶部会显示成 `Windows PowerShell`。
+> 截图里是「待回答」这一档；「完成 / 待审批 / 出错」走同一套出口，只是文案与提示音不同。
+
 ### 它解决什么
 
 DSH 里同时开着好几个会话时，"哪个跑完了 / 哪个在等我点同意"很容易漏掉。本插件在你**没盯着**某个会话的时候，用一个 Windows 通知把你叫回来：
@@ -106,6 +113,13 @@ pwsh scripts/uninstall.ps1          # 撤协议 + 清 $DSH_HOME\dsh-attention\�
 ---
 
 ## English
+
+![The "question" tier, as it appears in the notification centre](assets/toast-notification-center.png)
+
+![Banner form (clickable) plus the taskbar](assets/toast-banner.jpg)
+
+> Real screenshots (2026-09-29). Note that the app name reads **`DeepSeek Harness` with the DSH icon** — that is the **AUMID registration** at work; without it the banner falls back to `Windows PowerShell`.
+> These show the "question" tier; "done / approval / error" use the same output path with different wording and sound.
 
 A **cross-session notification** plugin for DSH: when a session finishes, asks a question, needs approval or errors, you get an **actionable Windows toast**, a tiered sound and a taskbar badge — **only for sessions you are not currently watching**.
 
