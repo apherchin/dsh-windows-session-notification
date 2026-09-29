@@ -1,0 +1,12 @@
+# dsh-windows-session-notification bundle 补丁：向 profile 组合插入一行。
+# ⚠️ 这里必须写**包名**，不能写绝对路径。实测（2026-09-29，Win11 VM + dsh 0.2.0-rc.2）：
+#   写死本机路径 `.../plugins/dsh-attention/index.mjs` 时，在别的机器上装载会得到
+#     dsh: disabling profile plugin row "attention": its declared peer dependencies
+#          cannot be validated: UNKNOWN: unknown error, lstat 'D:\'
+#   ⇒ 该行被静默 disable、提醒功能整体消失（只有 stderr 一行）。改成包名后正常装载并通过全部路由探针。
+#
+# 装法（会把本 bundle 记进 `dsh.profile.bundles`）：
+#   dsh plugin --profile <profile> add dsh-windows-session-notification
+- insert:
+    - id: attention
+      name: dsh-windows-session-notification

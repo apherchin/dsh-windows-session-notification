@@ -1,0 +1,6 @@
+{
+  "meta": {
+    "title": "Session notifications",
+    "description": "Actionable Windows toasts, tiered sounds and a taskbar badge when a session finishes, asks a question, needs approval or errors — but only for sessions you are not watching. Windows only."
+  }
+}

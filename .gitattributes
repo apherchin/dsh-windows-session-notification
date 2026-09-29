@@ -1,0 +1,9 @@
+# 统一换行：仓库里一律 LF。
+# ⚠️ 例外：`scripts/*.ps1` **必须**保留各自原有的 CRLF 与 UTF-8 BOM（Windows PowerShell 5.1
+#    按 ANSI 读无 BOM 的中文脚本会解析失败），因此这里只对文本类做 `text=auto`，
+#    不对 .ps1 强转行尾（`-text` 表示"当二进制看待、不做行尾转换"）。
+* text=auto eol=lf
+*.ps1 -text
+*.png binary
+*.jpg binary
+*.ico binary

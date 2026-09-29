@@ -1,0 +1,68 @@
+{
+  "name": "dsh-windows-session-notification",
+  "version": "0.1.0",
+  "description": "DSH plugin: cross-session \"needs attention\" notifications on Windows — actionable toasts, tiered sounds and a taskbar badge, only for sessions you are not watching.",
+  "type": "module",
+  "main": "index.mjs",
+  "icon": "./icon.svg",
+  "os": [
+    "win32"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./client.js",
+    "./cordis.patch.yml": "./cordis.patch.yml",
+    "./locale/*.json": "./locale/*.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.mjs",
+    "client.js",
+    "lib/*.mjs",
+    "scripts/*.ps1",
+    "cordis.patch.yml",
+    "icon.svg",
+    "locale/*.json"
+  ],
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "scripts": {
+    "test": "node --test --experimental-test-isolation=none test/*.test.mjs"
+  },
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "cordis",
+    "dsh-plugin",
+    "plugin",
+    "notification",
+    "toast",
+    "windows",
+    "taskbar-badge",
+    "attention"
+  ],
+  "license": "MIT",
+  "author": {
+    "name": "apherchin"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/apherchin/dsh-windows-session-notification.git"
+  },
+  "bugs": {
+    "url": "https://github.com/apherchin/dsh-windows-session-notification/issues"
+  },
+  "homepage": "https://github.com/apherchin/dsh-windows-session-notification#readme",
+  "engines": {
+    "node": ">=20"
+  }
+}

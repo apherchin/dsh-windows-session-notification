@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Cross-session notification">
+  <rect width="64" height="64" rx="14" fill="#1f6feb"/>
+  <path d="M32 14a11 11 0 0 0-11 11v7.5l-3.2 5.4a2 2 0 0 0 1.7 3.1h25a2 2 0 0 0 1.7-3.1L43 32.5V25a11 11 0 0 0-11-11z" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linejoin="round"/>
+  <path d="M27 44.5a5 5 0 0 0 10 0" fill="none" stroke="#ffffff" stroke-width="3.4" stroke-linecap="round"/>
+  <circle cx="45" cy="19" r="7" fill="#f85149"/>
+  <circle cx="45" cy="19" r="2.6" fill="#ffffff"/>
+</svg>
