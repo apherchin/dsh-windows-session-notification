@@ -92,7 +92,11 @@ function loadClientPlugin(options = {}) {
     console,
   )
   assert.ok(loaded !== undefined, 'client.js 没有调用 window.__ModuleLoader__.load')
-  assert.equal(loaded.id, 'dsh-attention', '模块 id 必须等于 package.json 的 name')
+  // ⚠️ 必须与 package.json 的 name **动态比对**，不能在断言里写死字面量：
+  //    2026-09-29 的真事故就是"改名后 client id 没跟"，而当时这里写死的是旧名 ⇒ 测试照样全绿。
+  const pkgName = JSON.parse(fs.readFileSync(path.join(HERE, '..', 'package.json'), 'utf8')).name
+  assert.equal(loaded.id, pkgName,
+    `模块 id 必须等于 package.json 的 name（当前 id=${loaded.id}，name=${pkgName}）`)
   const plugin = loaded.factory(() => { throw new Error('本插件的 client 半边不应 require 任何模块') })
   assert.equal(typeof plugin?.apply, 'function', '工厂必须返回带 apply 的插件')
   return { plugin, id: loaded.id, intervals }

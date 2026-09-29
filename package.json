@@ -1,6 +1,6 @@
 {
   "name": "dsh-windows-session-notification",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "DSH plugin: cross-session \"needs attention\" notifications on Windows — actionable toasts, tiered sounds and a taskbar badge, only for sessions you are not watching.",
   "type": "module",
   "main": "index.mjs",

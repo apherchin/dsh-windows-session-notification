@@ -1,11 +1,16 @@
-// dsh-attention 客户端半边。
-// 格式硬要求：手写的 __ModuleLoader__ 工厂（无构建步骤）；id 必须等于 package.json 的 name。
+// dsh-windows-session-notification 客户端半边（原 dsh-attention；npm 包名与目录名见 README）。
+// 格式硬要求：手写的 __ModuleLoader__ 工厂（无构建步骤）；**id 必须等于 package.json 的 name**。
+// ⚠️ 这条不是形式主义，2026-09-29 踩过真事故：改名后 id 没跟 ⇒ manifest 期望的模块 id（= 包名）
+//    与 bundle 注册的 id 不一致 ⇒ loader 认为"该模块还没加载"⇒ **重新导入同一个 bundle** ⇒
+//    第二次执行时 `dsh-attention` 已在注册表里 ⇒ `client-modules: duplicate factory registration`
+//    ⇒ entry `failed` ⇒ 撞渲染端「每条 client entry 必须 active」的全有全无门禁 ⇒ **整机起不来**
+//    （崩溃现场：`%APPDATA%\@deepseek-ai\dsh-desktop\logs\crash-*-web-boot.log`，2026-09-29T15:20:36Z）。
 // 职责只有三件：① 上报"我正在看哪个会话"（页面不可见/失焦时报 null）
 //               ② 轮询宿主，收到"打开会话"请求时用 `ctx.get('uiWorkspace').openSession(id)` 切过去
 //                 （**不是** `ctx.uiWorkspace`：服务访问要过门禁，直接属性访问在 client 侧拿不到）
 //               ③ 把未读数转成任务栏角标（渲染进程的 Badging API）
 window.__ModuleLoader__.load({
-  id: 'dsh-attention',
+  id: 'dsh-windows-session-notification',
   factory(require) {
     const POLL_MS = 1000
 
